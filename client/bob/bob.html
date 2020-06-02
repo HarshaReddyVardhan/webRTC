@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <title>WebRTC Tutorial Bob</title>
+    <link rel="stylesheet" type="text/css" href="./../main.css">
+  </head>
+  <body>
+    <ul id="messages"></ul>
+    <div id="fileDownload">
+      <a id="download"></a>
+    </div>
+    <form id="chat_form" action="">
+      <input id="m" placeholder="Your message here" autocomplete="off" />
+      <button id="m_submit" type="submit">Send</button>
+
+      <video id="remoteVideo" controls autoplay height="225" width="300"></video>
+    </form>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+
+
+    <!--<script src="http://webrtc.github.io/adapter/adapter-latest.js"></script>-->
+    <!--<script src="https://raw.githubusercontent.com/addyosmani/getUserMedia.js/gh-pages/dist/getUserMedia.min.js"></script>-->
+
+    <script src="https://cdn.temasys.com.sg/adapterjs/0.11.x/adapter.debug.js"></script>
+    <script src="https://cdn.temasys.com.sg/adapterjs/0.13.x/adapter.screenshare.js"></script>
+
+    <script src="./js/socket.js"></script>
+    <script src="./js/chat.js"></script>
+    <script src="./js/webRTC.js"></script>
+  </body>
+</html>
