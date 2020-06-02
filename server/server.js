@@ -1,10 +1,25 @@
 var loopback = require('loopback');
 var boot = require('loopback-boot');
-var express = require('express');
 var app = module.exports = loopback();
-var port = process.env.PORT || 3000 ;
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
+require('dotenv').config();
+const express = require("express");
+const http = require("http");
+const apps = express();
+const server = http.createServer(app);
+const socket = require("socket.io");
+const io = socket(server);
+const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
+const port = process.env.PORT|| 8000;
+// process.env.PORT || 8000
+const users = {};
+
+const socketToRoom = {};
+
+
+
 boot(app, __dirname);
 
 app.start = function() {
@@ -54,3 +69,4 @@ if (require.main === module) {
   	});
   });
 }
+server.listen(port, () => console.log('server is running on port 3000'));
