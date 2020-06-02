@@ -1,8 +1,8 @@
 var loopback = require('loopback');
 var boot = require('loopback-boot');
-
+var express = require('express');
 var app = module.exports = loopback();
-
+var port = process.env.PORT || 3000 ;
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
 boot(app, __dirname);
@@ -37,7 +37,7 @@ if (require.main === module) {
     	console.log('CANDIDATE_WEB_RTC_ALICE: ' + msg);
     	app.io.emit('CANDIDATE_WEB_RTC_ALICE', msg);
   	});
-    
+
     /* BOB message type */
     socket.on('CANDIDATE_WEB_RTC_BOB', function(msg){
     	console.log('CANDIDATE_WEB_RTC_BOB: ' + msg);
